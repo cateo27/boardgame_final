@@ -33,6 +33,7 @@ st.markdown("""
 if rows:
     df = pd.DataFrame(rows)
 
+
     # Renommer les colonnes
     df = df.rename(columns={
         "nom": "Nom du jeu",
@@ -101,13 +102,13 @@ if rows:
     # --- Appliquer les filtres ---
     nb_lignes_deb = df.shape[0]
     if filtre_meca:
-        df = df[df["mecanique"].isin(filtre_meca)]
+        df = df[df["Mécanique(s) de jeu"].isin(filtre_meca)]
 
     if filtre_theme:
-        df = df[df["Thème"].isin(filtre_theme)]
+        df = df[df["Thème(s)"].isin(filtre_theme)]
 
     if filtre_coop:
-        df = df[df["Type de coopération"].isin(filtre_coop)]
+        df = df[df["Type(s) de coopération"].isin(filtre_coop)]
 
     if filtre_duree:
         df = df[df["Durée"].isin(filtre_duree)]

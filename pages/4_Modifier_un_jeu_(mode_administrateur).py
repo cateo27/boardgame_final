@@ -1,10 +1,9 @@
 import streamlit as st
 import pandas as pd
 from utils.supabase_client import supabase
-import streamlit as st
 
-# Mot de passe admin (à personnaliser)
-ADMIN_PASSWORD = "monmotdepasse"
+# Mot de passe admin
+ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
 
 # Initialisation
 if "admin_ok" not in st.session_state:
