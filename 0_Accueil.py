@@ -58,12 +58,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown('<div class="small-section-title">À propos de cette application</div>', unsafe_allow_html=True)
+st.markdown('<div class="small-section-title">À propos de cette application :</div>', unsafe_allow_html=True)
 
 st.markdown("""
 <ul class="info-list"><I>
-    <li>Développée avec Streamlit et hébergée sur GitHub</li>
-    <li>Base de données connectée via Supabase</li>
-    <li>Fonctionnalités IA générative intégrées grâce à Groq</li></I>
+    <li>Pages développées et mises en ligne avec Streamlit ; hébergement sur GitHub</li>
+    <li>Base de données construite avec Supabase</li>
+    <li>Fonctionnalités IA générative intégrées grâce à une clé Groq</li></I>
 </ul>
+
 """, unsafe_allow_html=True)
+
+st.markdown('<div class="small-section-title">Utilisation de fonctionnalités gratuites, donc un long temps de chargement est normal !</div>', unsafe_allow_html=True)
+
