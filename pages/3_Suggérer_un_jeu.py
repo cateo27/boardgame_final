@@ -11,8 +11,31 @@ import json
 import re
 
 
+def check_groq_key(api_key: str) -> bool:
+    """Retourne True si la clé Groq est valide, False sinon."""
+    try:
+        test_client = Groq(api_key=api_key)
+        # Petit appel minimaliste
+        test_client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": "test"}],
+            max_tokens=1
+        )
+        return True
+    except Exception as e:
+        # On détecte les erreurs d'authentification
+        if "AuthenticationError" in str(e) or "401" in str(e):
+            return False
+        return False
+
+
 groq_key = st.secrets["GROQ_API_KEY"]
+if not check_groq_key(groq_key):
+    st.error("❌ La clé Groq n'est plus valide. La fonctionnalité IA est désactivée.")
+    st.stop()
+
 client = Groq(api_key=groq_key)
+
 
 st.title("Suggérer un jeu")
 
